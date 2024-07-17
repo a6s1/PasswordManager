@@ -1,111 +1,94 @@
+```markdown
 # Simple Password Manager
 
-A simple password manager written in Python that allows you to generate, store, update, and delete passwords for different accounts. Passwords are securely saved to a file, ensuring they persist between runs of the script.
+A simple password manager written in Python with a graphical user interface (GUI) that allows you to generate, store, update, and delete passwords for different accounts. Passwords are securely saved to a file, ensuring they persist between runs of the application. Retrieved passwords are automatically copied to the clipboard for easy pasting.
 
 ## Features
 
 - **Generate Password**: Creates a secure password with a minimum length of 16 characters.
 - **Add Password**: Stores a generated or provided password for a specific account.
-- **Get Password**: Retrieves the stored password for a given account.
-- **Update Password**: Updates the password for a given account with a new generated or provided password.
+- **Get Password**: Retrieves the stored password for a given account and copies it to the clipboard.
+- **Update Password**: Updates the password for a given account with a new generated or provided password and copies it to the clipboard.
 - **Delete Password**: Deletes the stored password for a given account.
-- **Command-Line Interface**: Interact with the password manager through command-line arguments.
+- **Graphical User Interface**: Easy-to-use interface for interacting with the password manager.
+- **Copy to Clipboard**: Automatically copies retrieved, added, or updated passwords to the clipboard.
 
 ## Usage
 
-### Adding a Password
-
-To add a password for an account, use the `-a` or `--add` argument followed by the account name and the desired password length.
-
-```sh
-python app.py -a <account> <length>
-```
-
-Example:
-
-```sh
-python app.py -a google 16
-```
-
-### Getting a Password
-
-To retrieve the password for an account, use the `-g` or `--get` argument followed by the account name.
-
-```sh
-python app.py -g <account>
-```
-
-Example:
-
-```sh
-python app.py -g google
-```
-
-### Updating a Password
-
-To update the password for an account, use the `-u` or `--update` argument followed by the account name and the desired password length.
-
-```sh
-python app.py -u <account> <length>
-```
-
-Example:
-
-```sh
-python app.py -u google 20
-```
-
-### Deleting a Password
-
-To delete the password for an account, use the `-d` or `--delete` argument followed by the account name.
-
-```sh
-python app.py -d <account>
-```
-
-Example:
-
-```sh
-python app.py -d google
-```
-
-### Displaying Help
-
-To display help and see all available options, use the `-h` or `--help` argument.
-
-```sh
-python app.py -h
-```
-
-## Installation
+### Running the Application
 
 1. Ensure you have Python installed on your system.
 2. Clone this repository or download the `app.py` file.
 3. Open your terminal or command prompt and navigate to the directory containing `app.py`.
 
-## Example
+### Installing Dependencies
+
+Install the required Python packages using pip:
 
 ```sh
-# Add a password for Google
-python app.py -a google 16
-# Output: Password for google: ]VH?D1g_<2<L["fY
-
-# Retrieve the password for Google
-python app.py -g google
-# Output: Password for google: ]VH?D1g_<2<L["fY
-
-# Update the password for Google
-python app.py -u google 20
-# Output: Updated password for google: wH2+SDd7!zU@J&Lk^YtZ
-
-# Delete the password for Google
-python app.py -d google
-# Output: Password deleted
-
-# Try to retrieve the deleted password
-python app.py -g google
-# Output: Account not found
+pip install pyperclip tk
 ```
+
+### Creating the Executable
+
+You can create an executable file using PyInstaller:
+
+1. Install PyInstaller:
+
+    ```sh
+    pip install pyinstaller
+    ```
+
+2. Generate the executable:
+
+    ```sh
+    pyinstaller --onefile --noconsole app.py
+    ```
+
+3. The executable file will be created in the `dist` directory.
+
+### Using the Application
+
+Double-click the `app.exe` file in the `dist` directory to launch the GUI. You can also run the Python script directly:
+
+```sh
+python app.py
+```
+
+### GUI Options
+
+- **Add Password**: Adds a new password for an account. You will be prompted to enter the account name and desired password length.
+- **Get Password**: Retrieves the password for an account. You will be prompted to enter the account name.
+- **Update Password**: Updates the password for an account. You will be prompted to enter the account name and desired password length.
+- **Delete Password**: Deletes the password for an account. You will be prompted to enter the account name.
+
+## Example
+
+1. **Add a Password**:
+
+    - Click "Add Password"
+    - Enter the account name (e.g., `google`)
+    - Enter the desired password length (e.g., `16`)
+    - The generated password will be shown in a message box and copied to the clipboard.
+
+2. **Get a Password**:
+
+    - Click "Get Password"
+    - Enter the account name (e.g., `google`)
+    - The retrieved password will be shown in a message box and copied to the clipboard.
+
+3. **Update a Password**:
+
+    - Click "Update Password"
+    - Enter the account name (e.g., `google`)
+    - Enter the desired password length (e.g., `20`)
+    - The updated password will be shown in a message box and copied to the clipboard.
+
+4. **Delete a Password**:
+
+    - Click "Delete Password"
+    - Enter the account name (e.g., `google`)
+    - A confirmation message will be shown.
 
 
 ## Contributions
@@ -115,4 +98,4 @@ Contributions are welcome! Please open an issue or submit a pull request with yo
 ## Contact
 
 For any questions or suggestions, please open an issue in this repository.
-
+```
